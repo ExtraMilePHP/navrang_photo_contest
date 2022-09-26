@@ -540,7 +540,7 @@ var category=$("#category").val();
      //   var appSend="upload-video.php";
      swal("", "Only image allowed", "error");
     }else if(checkUrl=="image"){
-      var appSend="upload-image.php";
+      var appSend="upload-image-new.php";
     }
   if(!errorFlag){
   formData.append('file',inputfile.files[0]);
@@ -555,6 +555,7 @@ var category=$("#category").val();
 		if(request.readyState == 4 && request.status == 200){
       progress.style.display="none";
       var data = JSON.parse(request.responseText);
+      console.log(request.responseText);
                     if(data.success){
                            if(data.isdemo){
                                  swal("Subscribe to any PLAN to play with your peers.", "", "success").then(() => {
