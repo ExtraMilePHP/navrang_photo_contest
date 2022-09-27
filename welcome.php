@@ -36,12 +36,21 @@ $fullname=$_SESSION["firstName"];
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link href="css/style-one.css" type="text/css" rel="stylesheet">
+        <link href="css/style-one.css?v=2" type="text/css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="js/popImg.js"></script>
-
-          
+        <script src="js/popImg.js?v=2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style type="text/css" rel="stylesheet">
+             .image-container-fix{
+              background: black;
+              border-top-right-radius: 17px;
+              border-top-left-radius: 17px;
+              text-align:center;
+              overflow:hidden;
+             }
+             
+        </style>
     </head>
     <body>
 <?php include("../actions-default.php");  back("index.php?save");?>
@@ -379,8 +388,8 @@ while($get=mysqli_fetch_array($query)){
                         </div>';
                     }
                     if($get["type"]=="image"){
-                       echo '              <div class="col-md-3 video-container"  style="position:relative;">
-                       <img src="uploads/'.$get["video"].'" class="image-fix"/>
+                       echo '<div class="col-md-3 video-container"  style="position:relative;">
+                       <div class="col-md-12 image-container-fix"><a class="image-popup-vertical-fit" href="uploads/'.$get["video"].'" title="Photo">  <img src="uploads/'.$get["video"].'" class="image-fix"/></a></div>
                      <div class="col-md-12 operation" style="background:black; color:#FFFFFF;">
                      <div class="row">
                      <div class="col-md-4 col-xs-3" style="padding: 5px 7px;"><img src="img/'.$likesImg.'" class="vote like-image" post_id="'.$get["id"].'" report_id="'.$get["likesid"].'" status="'.$likes.'" /><span style="display:inline-block;">&nbsp;'.$get["likes"].'</span> </div>
