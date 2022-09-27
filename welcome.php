@@ -462,7 +462,7 @@ $(".cat_container").eq(<?php echo $eq;?>).css("background","#2364ae");
 $(".cat_container").eq(<?php echo $eq;?>).css("color","white");
 $(".cat_container").eq(<?php echo $eq;?>).css("box-shadow","0px 0px 0px #00000082");
 
-$(".image-fix").popImg();
+// $(".image-fix").popImg();
 
 
 
