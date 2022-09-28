@@ -371,6 +371,11 @@ while($get=mysqli_fetch_array($query)){
                       $deleteAccess='';
                     }
 
+                    $get_total_likes="SELECT DISTINCT user FROM `likes` WHERE post='$post_id'";
+                    $get_total_likes=mysqli_query($con,$get_total_likes);
+                    $total_likes=mysqli_num_rows($get_total_likes);
+
+
                     if($get["type"]=="video"){
                         echo '<div class="col-md-3 video-container"  style="position:relative;">
                         <video controls controlsList="nodownload">
@@ -379,7 +384,7 @@ while($get=mysqli_fetch_array($query)){
                       </video>
                       <div class="col-md-12 operation" style="background:black; color:#FFFFFF;" >
                       <div class="row">
-                      <div class="col-md-4 col-xs-3" style="padding: 5px 7px;"><img src="img/'.$likesImg.'" class="vote like-image" post_id="'.$get["id"].'" report_id="'.$get["likesid"].'" status="'.$likes.'" /><span style="display:inline-block;">&nbsp;'.$get["likes"].'</span> </div>
+                      <div class="col-md-4 col-xs-3" style="padding: 5px 7px;"><img src="img/'.$likesImg.'" class="vote like-image" post_id="'.$get["id"].'" report_id="'.$get["likesid"].'" status="'.$likes.'" /><span style="display:inline-block;">&nbsp;'.$total_likes.'</span> </div>
                       <div class="col-md-8 col-xs-9"  style="text-align:right; padding: 5px 7px;">'.$get["name"].'</div>
                       <div class="col-md-12" style="text-align:right; padding-bottom:3px;">'.$get["business"].'</div>
                       </div>
@@ -392,7 +397,7 @@ while($get=mysqli_fetch_array($query)){
                        <div class="col-md-12 image-container-fix"><a class="image-popup-vertical-fit" href="uploads/'.$get["video"].'" title="Photo">  <img src="uploads/'.$get["video"].'" class="image-fix"/></a></div>
                      <div class="col-md-12 operation" style="background:black; color:#FFFFFF;">
                      <div class="row">
-                     <div class="col-md-4 col-xs-3" style="padding: 5px 7px;"><img src="img/'.$likesImg.'" class="vote like-image" post_id="'.$get["id"].'" report_id="'.$get["likesid"].'" status="'.$likes.'" /><span style="display:inline-block;">&nbsp;'.$get["likes"].'</span> </div>
+                     <div class="col-md-4 col-xs-3" style="padding: 5px 7px;"><img src="img/'.$likesImg.'" class="vote like-image" post_id="'.$get["id"].'" report_id="'.$get["likesid"].'" status="'.$likes.'" /><span style="display:inline-block;">&nbsp;'.$total_likes.'</span> </div>
                      <div class="col-md-8 col-xs-9"  style="text-align:right; padding: 5px 7px;">'.$get["name"].'</div>
                      <!--<div class="col-md-12" style="text-align:right; padding-bottom:3px;">'.$get["business"].'</div>-->
                      </div>
